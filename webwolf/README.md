@@ -43,4 +43,4 @@ mvn -pl webwolf spring-boot:run
 ### Mapping
 
 The web application runs on '/' and the controllers and Thymeleaf templates are hardcoded to '/WebWolf' we need
-to have '/' available which acts as a landing page for incoming requests.
+to have '/' available which acts as a landing page for incoming requests
