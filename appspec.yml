@@ -8,8 +8,7 @@ hooks:
     - location: install_java.sh
       timeout: 300
       runas: root
-
-  AfterInstall:
+  ApplicationStart:
     - location: start_server.sh
       timeout: 300
       runas: root
