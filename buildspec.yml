@@ -8,5 +8,6 @@ phases:
 artifacts:
   files:
     - webgoat-server/target/webgoat-server-v8.1.0.jar
+    - appspec.yml
   discard-paths: yes
 
