@@ -9,5 +9,6 @@ artifacts:
   files:
     - webgoat-server/target/webgoat-server-v8.1.0.jar
     - appspec.yml
+    - scripts/start_server.sh
   discard-paths: yes
 
