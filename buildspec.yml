@@ -10,5 +10,6 @@ artifacts:
     - webgoat-server/target/webgoat-server-v8.1.0.jar
     - appspec.yml
     - scripts/start_server.sh
+    - scripts/install_java.sh
   discard-paths: yes
 
