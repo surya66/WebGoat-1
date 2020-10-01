@@ -7,6 +7,6 @@ phases:
 
 artifacts:
   files:
-    - webgoat-server/target/webgoat-server-8.0-SNAPSHOT.jar
+    - webgoat-server/target/webgoat-server-v8.1.0.jar
   discard-paths: yes
 
