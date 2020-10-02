@@ -3,12 +3,15 @@ os: linux
 files:
   - source: ./webgoat-server-v8.1.0.jar
     destination: /tmp
+    
 hooks:
-  BeforeInstall:
+  AfterInstall:
     - location: install_java.sh
       timeout: 300
       runas: root
-  ApplicationStart:
     - location: start_server.sh
+      timeout: 300
+      runas: root
+    - location: run_dast.sh
       timeout: 300
       runas: root
