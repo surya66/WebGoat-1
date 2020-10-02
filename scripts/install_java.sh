@@ -1,3 +1,5 @@
 #!/bin/bash
 # sudo amazon-linux-extras install java-openjdk11 -y
-export WEBGOAT_HOST=54.167.100.117
+sudo yum -y install docker
+sudo service docker restart
+export WEBGOAT_HOST=$(ip -f inet -o addr show docker0 | awk '{print $4}' | cut -d '/' -f 1)
