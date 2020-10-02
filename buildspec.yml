@@ -28,7 +28,7 @@ phases:
       - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f HTML --disableNuspec --disableAssembly -d dependency-check/nvd --out depcheck_report.html
       - rm -rf dependency-check*
 
-      - ./snyk test --json | tee snyk-results.json
+      - ./snyk test webgoat-container webgoat-server webwolf --json | tee snyk-results.json
       - snyk-to-html -i snyk-results.json -o snyk-results.html
       - rm -rf snyk
 
@@ -44,6 +44,6 @@ artifacts:
     - reports/class-report.html
     - scripts/start_server.sh
     - scripts/install_java.sh
+    - scripts/run_dast.sh
 
   discard-paths: yes
-
