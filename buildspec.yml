@@ -28,6 +28,7 @@ phases:
       - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f HTML --disableNuspec --disableAssembly -d dependency-check/nvd --out depcheck_report.html
       - rm -rf dependency-check*
 
+
       - ./snyk test webgoat-container webgoat-server webwolf --json | tee snyk-results.json
       - snyk-to-html -i snyk-results.json -o snyk-results.html
       - rm -rf snyk
