@@ -120,6 +120,6 @@ mvn -pl webgoat-server spring-boot:run
 To change IP address add the following variable to WebGoat/webgoat-container/src/main/resources/application.properties file
 
 ```
-server.address=x.x.x.x.
+server.address=x.x.x.x.x
 ```
 
