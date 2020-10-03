@@ -3,7 +3,6 @@ version: 0.2
 phases:
   post_build:
     commands:
-      - service docker start
       - docker run --rm -e "WORKSPACE=${PWD}" -v ~/.m2:/.m2 -v $PWD:/app shiftleft/scan scan --src /app --type java
       # - rm -rf reports
 
