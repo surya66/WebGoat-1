@@ -1,36 +1,36 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      # - aws s3 cp s3://tools-devsecops/dependency-check.zip .
-      - wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.0.2/dependency-check-6.0.2-release.zip
-      - unzip dependency-check-6.0.2-release.zip
-      - chmod +x dependency-check/bin/dependency-check.sh
+  # install:
+  #   commands:
+  #     # - aws s3 cp s3://tools-devsecops/dependency-check.zip .
+  #     - wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.0.2/dependency-check-6.0.2-release.zip
+  #     - unzip dependency-check-6.0.2-release.zip
+  #     - chmod +x dependency-check/bin/dependency-check.sh
 
-      # - aws s3 cp s3://tools-devsecops/snyk.zip .
-      # - unzip snyk.zip
-      - wget https://github.com/snyk/snyk/releases/download/v1.204.0/snyk-linux && mv snyk-linux snyk 
-      - chmod +x snyk && ./snyk config set api=4eb19633-c0f0-4043-a5c7-9404c40416a3 && ./snyk auth 4eb19633-c0f0-4043-a5c7-9404c40416a3
-      - npm install snyk-to-html -g
+  #     # - aws s3 cp s3://tools-devsecops/snyk.zip .
+  #     # - unzip snyk.zip
+  #     - wget https://github.com/snyk/snyk/releases/download/v1.204.0/snyk-linux && mv snyk-linux snyk 
+  #     - chmod +x snyk && ./snyk config set api=4eb19633-c0f0-4043-a5c7-9404c40416a3 && ./snyk auth 4eb19633-c0f0-4043-a5c7-9404c40416a3
+  #     - npm install snyk-to-html -g
 
   build:
     commands:
       - mvn package -DskipTests
 
-  post_build:
-    commands:
+  # post_build:
+  #   commands:
 
-      - docker run --rm -e "WORKSPACE=${PWD}" -v ~/.m2:/.m2 -v $PWD:/app shiftleft/scan scan --src /app --type java >/dev/null 2>&1 &
-      # - rm -rf reports
+  #     - docker run --rm -e "WORKSPACE=${PWD}" -v ~/.m2:/.m2 -v $PWD:/app shiftleft/scan scan --src /app --type java >/dev/null 2>&1 &
+  #     # - rm -rf reports
 
-      - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f XML --disableNuspec --disableAssembly -d dependency-check/nvd --out depcheck_report.xml
-      - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f HTML --disableNuspec --disableAssembly -d dependency-check/nvd --out depcheck_report.html
-      - rm -rf dependency-check*
+  #     - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f XML --disableNuspec --disableAssembly -d dependency-check/nvd --out depcheck_report.xml
+  #     - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f HTML --disableNuspec --disableAssembly -d dependency-check/nvd --out depcheck_report.html
+  #     - rm -rf dependency-check*
 
-      - ./snyk test webgoat-container webgoat-server webwolf --json | tee snyk-results.json
-      - snyk-to-html -i snyk-results.json -o snyk-results.html
-      - rm -rf snyk
+  #     - ./snyk test webgoat-container webgoat-server webwolf --json | tee snyk-results.json
+  #     - snyk-to-html -i snyk-results.json -o snyk-results.html
+  #     - rm -rf snyk
 
 artifacts:
   files:
