@@ -212,9 +212,9 @@ if __name__ == '__main__':
     for scanner in SCANNER:
         # print(scanner.replace(" ","-"))
         if scanner == 'Dependency Check Scan':
-            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file='/tmp' + scanner.replace(" ","-")+".xml")
+            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file='/tmp/' + scanner.replace(" ","-")+".xml")
         elif scanner == 'Snyk Scan':
-            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file='/tmp' + scanner.replace(" ","-")+".json")
+            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file='/tmp/' + scanner.replace(" ","-")+".json")
         elif scanner == 'ZAP Scan':
             time.sleep(300)
-            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file='/tmp' + scanner.replace(" ","-")+".xml")
+            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file='/tmp/' + scanner.replace(" ","-")+".xml")
