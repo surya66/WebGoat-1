@@ -45,7 +45,6 @@ artifacts:
     - scripts/start_server.sh
     - scripts/install_java.sh
     - scripts/run_dast.sh
-
+    - scripts/upload_report.sh
 
   discard-paths: yes
-
