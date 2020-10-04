@@ -1,1 +1,1 @@
-rm -rf /tmp/Snyk-Scan.json /tmp/Dependency-Check-Scan.xml /tmp/class-report.xml
+rm -rf /tmp/Snyk-Scan.json /tmp/Dependency-Check-Scan.xml /tmp/class-report.xml /tmp/dd_config.py /tmp/dd_upload.py
