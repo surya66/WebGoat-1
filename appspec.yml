@@ -15,3 +15,6 @@ hooks:
     - location: run_dast.sh
       timeout: 300
       runas: root
+    - location: upload_report.sh
+      timeout: 300
+      runas: root
