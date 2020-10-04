@@ -45,10 +45,7 @@ artifacts:
     - scripts/start_server.sh
     - scripts/install_java.sh
     - scripts/run_dast.sh
-    - scripts/upload_report.sh
-    - scripts/dd_upload_script/dd-config.py
-    - scripts/dd_upload_script/dd-upload.py
-    - scripts/dd_upload_script/requirements.txt
+
 
   discard-paths: yes
 
