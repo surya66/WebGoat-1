@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
-files:
-  - source: ./webgoat-server-v8.1.0.jar
-    destination: /tmp
+# files:
+#   - source: ./webgoat-server-v8.1.0.jar
+#     destination: /tmp
     
 hooks:
   AfterInstall:
