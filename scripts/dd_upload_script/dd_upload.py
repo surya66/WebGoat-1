@@ -20,7 +20,7 @@ from defectdojo_api import defectdojo
 from dd_config import DEFECT_DOJO_HOST, DEFECT_DOJO_API_KEY, DEFECT_DOJO_USERNAME, SCANNER, PROJECT_NAME, ARTIFACT_NAME
 
 
-class DeployDast(object):
+class UploadReport(object):
     """
         Class for Defect Dojo.
     """
@@ -156,7 +156,7 @@ def upload_executor(project_name, artifact_name, scanner, result_file):
 
     try:
 
-        dd_obj = DeployDast()
+        dd_obj = UploadReport()
 
         # Get project list in defect dojo
         project_list = dd_obj.get_project_list()
