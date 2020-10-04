@@ -14,6 +14,7 @@ import datetime
 import json
 import requests
 import socket
+import time
 from concurrent.futures import ThreadPoolExecutor
 from defectdojo_api import defectdojo
 from dd_config import DEFECT_DOJO_HOST, DEFECT_DOJO_API_KEY, DEFECT_DOJO_USERNAME, SCANNER, PROJECT_NAME, ARTIFACT_NAME
@@ -212,8 +213,9 @@ if __name__ == '__main__':
     for scanner in SCANNER:
         # print(scanner.replace(" ","-"))
         if scanner == 'Dependency Check Scan':
-            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file=scanner.replace(" ","-")+".xml")
+            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file='/tmp' + scanner.replace(" ","-")+".xml")
         elif scanner == 'Snyk Scan':
-            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file=scanner.replace(" ","-")+".json")
+            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file='/tmp' + scanner.replace(" ","-")+".json")
         elif scanner == 'ZAP Scan':
-            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file=scanner.replace(" ","-")+".xml")
+            time.sleep(300)
+            upload_executor(project_name=PROJECT_NAME, artifact_name=ARTIFACT_NAME, scanner=scanner, result_file='/tmp' + scanner.replace(" ","-")+".xml")
