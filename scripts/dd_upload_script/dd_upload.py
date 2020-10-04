@@ -139,9 +139,8 @@ def upload_results(scanner, result_file, engagement_id):
     files['file'] = open(result_file)
 
     # Make a request to API
-    proxies = {'http': 'http://127.0.0.1:8085', 'https': 'http://127.0.0.1:8085',
-}
-    response = requests.post(IMPORT_SCAN_URL, headers=headers, files=files, data=json, verify=False, proxies=proxies)
+
+    response = requests.post(IMPORT_SCAN_URL, headers=headers, files=files, data=json, verify=False)
 
     return response.status_code
 
