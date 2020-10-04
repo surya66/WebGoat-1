@@ -12,9 +12,9 @@ hooks:
     # - location: start_server.sh
     #   timeout: 300
     #   runas: root
-    - location: run_dast.sh
-      timeout: 300
-      runas: root
+#     - location: run_dast.sh
+#       timeout: 300
+#       runas: root
     - location: upload_report.sh
       timeout: 300
       runas: root
