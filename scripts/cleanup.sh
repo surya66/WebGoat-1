@@ -1,0 +1,1 @@
+rm -rf /tmp/Snyk-Scan.json /tmp/Dependency-Check-Scan.xml
