@@ -9,14 +9,18 @@ files:
     destination: /tmp
   # - source: class-report.xml
   #   destination: /tmp
-    
+  - source: dd_upload.py
+    destination: /tmp
+  - source: dd_config.py
+    destination: /tmp
+
 hooks:
 
   BeforeInstall:
     - location: cleanup.sh
       timeout: 300
       runas: root
-      
+
   AfterInstall:
     - location: install_java.sh
       timeout: 300
