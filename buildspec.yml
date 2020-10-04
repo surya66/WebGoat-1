@@ -24,26 +24,31 @@ phases:
       - docker run --rm -e "WORKSPACE=${PWD}" -v ~/.m2:/.m2 -v $PWD:/app shiftleft/scan scan --src /app --type java >/dev/null 2>&1 &
       # - rm -rf reports
 
-      - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f XML --disableNuspec --disableAssembly -d dependency-check/nvd --out depcheck_report.xml
-      - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f HTML --disableNuspec --disableAssembly -d dependency-check/nvd --out depcheck_report.html
+      - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f XML --disableNuspec --disableAssembly -d dependency-check/nvd --out Dependency-Check-Scan.xml
+      - dependency-check/bin/dependency-check.sh --project vuln_app -s webgoat-server/target/webgoat-server-v8.1.0.jar -f HTML --disableNuspec --disableAssembly -d dependency-check/nvd --out Dependency-Check-Scan.html
       - rm -rf dependency-check*
 
-      - ./snyk test webgoat-container webgoat-server webwolf --json | tee snyk-results.json
-      - snyk-to-html -i snyk-results.json -o snyk-results.html
+      - ./snyk test webgoat-container webgoat-server webwolf --json | tee Snyk-Scan.json
+      - snyk-to-html -i Snyk-Scan.json -o Snyk-Scan.html
       - rm -rf snyk
 
 artifacts:
   files:
     - webgoat-server/target/webgoat-server-v8.1.0.jar
     - appspec.yml
-    - depcheck_report.xml
-    - depcheck_report.html
-    - snyk-results.json
-    - snyk-results.html
+    - Dependency-Check-Scan.xml
+    - Dependency-Check-Scan.html
+    - Snyk-Scan.json
+    - Snyk-Scan.html
     - reports/class-report.xml
     - reports/class-report.html
     - scripts/start_server.sh
     - scripts/install_java.sh
     - scripts/run_dast.sh
+    - scripts/upload_report.sh
+    - scripts/dd_upload_script/dd-config.py
+    - scripts/dd_upload_script/dd-upload.py
+    - scripts/dd_upload_script/requirements.txt
 
   discard-paths: yes
+
