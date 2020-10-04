@@ -3,18 +3,20 @@ os: linux
 files:
   # - source: webgoat-server-v8.1.0.jar
   #   destination: /tmp
-  #   overwrite: true 
   # - source: Dependency-Check-Scan.xml
   #   destination: /tmp
-  #   overwrite: true 
   - source: Snyk-Scan.json
     destination: /tmp
-    overwrite: true 
   # - source: class-report.xml
   #   destination: /tmp
-  #   overwrite: true 
     
 hooks:
+
+  BeforeInstall:
+    - location: cleanup.sh
+      timeout: 300
+      runas: root
+      
   AfterInstall:
     - location: install_java.sh
       timeout: 300
