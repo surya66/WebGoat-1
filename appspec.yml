@@ -9,9 +9,9 @@ hooks:
     # - location: scripts/start_server.sh
     #   timeout: 300
     #   runas: root
-#     - location: scripts/run_dast.sh
-#       timeout: 300
-#       runas: root
-    - location: scripts/upload_report.sh
+    - location: scripts/run_dast.sh
       timeout: 300
       runas: root
+    # - location: scripts/upload_report.sh
+    #   timeout: 300
+    #   runas: root
