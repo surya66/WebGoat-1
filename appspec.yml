@@ -1,14 +1,14 @@
 version: 0.0
 os: linux
 files:
-  # - source: webgoat-server-v8.1.0.jar
-  #   destination: /tmp
-  # - source: Dependency-Check-Scan.xml
-  #   destination: /tmp
+  - source: webgoat-server-v8.1.0.jar
+    destination: /tmp
+  - source: Dependency-Check-Scan.xml
+    destination: /tmp
   - source: Snyk-Scan.json
     destination: /tmp
-  # - source: class-report.xml
-  #   destination: /tmp
+  - source: class-report.xml
+    destination: /tmp
   - source: dd_upload.py
     destination: /tmp
   - source: dd_config.py
