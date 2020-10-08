@@ -6,4 +6,4 @@ source ~/.bashrc
 
 if echo $(sudo lsof -t -i:1337); then kill $(sudo lsof -t -i:1337); fi
 
-java -jar webgoat-server-v8.1.0.jar --server.port=1337 --server.address=$WEBGOAT_HOST  >/dev/null 2>&1 &
+java -jar /tmp/webgoat-server-v8.1.0.jar --server.port=1337 --server.address=$WEBGOAT_HOST  >/dev/null 2>&1 &
