@@ -10,8 +10,8 @@ __author__ = 'ratnesht'
 # ------------------------- DD UPLOAD SCAN INFO ------------------------------------------------------------------------
 
 DEFECT_DOJO_HOST = 'http://127.0.0.1:8080'
-DEFECT_DOJO_API_KEY = '1bbb7484482321e5344f8a590504460114312111'
-DEFECT_DOJO_USERNAME = 'devsecops'
+DEFECT_DOJO_API_KEY = 'd743e2511358c79b9475ab8a4e1ab94f30981e81'
+DEFECT_DOJO_USERNAME = 'admin'
 
 SCANNER = ['Dependency Check Scan', 'Snyk Scan', 'ZAP Scan']
 PROJECT_NAME='OWASP'
