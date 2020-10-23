@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      #comment 
       # - aws s3 cp s3://tools-devsecops/dependency-check.zip .
       - wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.0.2/dependency-check-6.0.2-release.zip
       - unzip dependency-check-6.0.2-release.zip
