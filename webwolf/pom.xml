@@ -4,7 +4,7 @@
     <artifactId>webwolf</artifactId>
     <packaging>jar</packaging>
     <properties>
-        <tomcat.version>8.5.23</tomcat.version>
+        <tomcat.version>8.5.61</tomcat.version>
     </properties>
     <parent>
         <groupId>org.owasp.webgoat</groupId>
