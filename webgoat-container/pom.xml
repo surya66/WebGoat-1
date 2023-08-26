@@ -6,7 +6,7 @@
     <artifactId>webgoat-container</artifactId>
     <packaging>jar</packaging>
     <properties>
-        <tomcat.version>8.5.23</tomcat.version>
+        <tomcat.version>8.5.93</tomcat.version>
     </properties>
 
     <parent>
